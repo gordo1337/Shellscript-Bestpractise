@@ -1,0 +1,2 @@
+# Shellscript-Bestpractise
+Best practices
