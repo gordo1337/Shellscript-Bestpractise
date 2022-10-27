@@ -25,7 +25,7 @@ Things
 
 7. Use set -o xtrace, with a check on $TRACE env variable.
 
-- For copy-paste: if [[ -n "${TRACE-}" ]]; then set -o xtrace; fi.
+- For copy-paste: ```bash if [[ -n "${TRACE-}" ]]; then set -o xtrace; fi```.
 - This helps in debugging your scripts, a lot. Like, really lot.
 - People can now enable debug mode, by running your script as TRACE=1 ./script.sh instead of ./script.sh.
 8. Use [[ ]] for conditions in if / while statements, instead of [ ] or test.
@@ -33,7 +33,7 @@ Things
 - [[ ]] is a bash builtin, and is more powerful than [ ] or test.
 9. Always quote variable accesses with double-quotes.
 
-- One place where it’s okay not to is on the left-hand-side of an [[ ]] condition. But even there I’d recommend quoting.
+- One place where it’s okay not to is on the left-hand-side of an ```bash [[ ]]``` condition. But even there I’d recommend quoting.
 - When you need the unquoted behaviour, using bash arrays will likely serve you much better.
 
 10. Use local variables in functions.
@@ -45,13 +45,13 @@ Things
 12. When printing error messages, please redirect to stderr.
 
 - Use echo 'Something unexpected happened' >&2 for this.
-13. Use long options, where possible (like --silent instead of -s). These serve to document your commands explicitly.
+13. Use long options, where possible (like ```bash--silent instead of -s```). These serve to document your commands explicitly.
 
 - Note though, that commands shipped on some systems like macOS don’t always have long options.
 14. If appropriate, change to the script’s directory close to the start of the script.
 
 - And it’s usually always appropriate.
-- Use cd "$(dirname "$0")", which works in most cases.
+- Use cd ```bash "$(dirname "$0")", ``` which works in most cases.
 15. Use shellcheck. Heed its warnings.
 
 ```bash
